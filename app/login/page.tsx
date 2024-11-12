@@ -1,8 +1,17 @@
 import { LogInIcon, Radar } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../_components/ui/button";
+import { SignInButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
-const LoginPage = () => {
+const LoginPage = async () => {
+
+    const { userId } = await auth()
+    if(userId){
+        redirect("/")
+    }
+
   return (
     <div className="grid h-full grid-cols-1 md:grid-cols-[3fr_1.5fr]">
       {/* ESQUERDA */}
@@ -20,10 +29,12 @@ const LoginPage = () => {
           e a organização do movimento na sua paróquia.
         </p>
         <div className="flex ">
-          <Button variant="outline">
-            <LogInIcon size={20} className="mr-2" />
-            Fazer login ou criar conta
-          </Button>
+            <SignInButton>
+                <Button variant="outline">
+                    <LogInIcon size={20} className="mr-2" />
+                    Fazer login ou criar conta
+                </Button>
+            </SignInButton>
         </div>
       </div>
       {/* DIREITA */}

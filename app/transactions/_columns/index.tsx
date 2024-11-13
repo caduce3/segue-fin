@@ -1,6 +1,10 @@
 "use client";
 
-import { Transaction, TransactionCategory, TransactionType } from "@prisma/client";
+import {
+  Transaction,
+  TransactionCategory,
+  TransactionType,
+} from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
 import TransactionTypeBadge from "../_components/type-badge";
 import { Button } from "@/app/_components/ui/button";
@@ -12,7 +16,7 @@ export const TRANSACTION_CATEGORY_LABELS = {
   SPONSORSHIP: "Patrocínio",
   DONATION: "Doação",
   BINGO: "Bingo",
-  OTHER: "Outro"
+  OTHER: "Outro",
 };
 
 export const TRANSACTION_PAYMENT_METHOD_LABELS = {
@@ -22,10 +26,8 @@ export const TRANSACTION_PAYMENT_METHOD_LABELS = {
   PIX: "PIX",
   BANK_TRANSFER: "Transferência Bancária",
   BANK_SLIP: "Boleto Bancário",
-  OTHER: "Outro"
+  OTHER: "Outro",
 };
-
-
 
 export const transactionsColumns: ColumnDef<Transaction>[] = [
   {
@@ -42,13 +44,13 @@ export const transactionsColumns: ColumnDef<Transaction>[] = [
   {
     accessorKey: "category",
     header: "Categoria",
-    cell: ({ row: { original: transaction } }) => 
+    cell: ({ row: { original: transaction } }) =>
       TRANSACTION_CATEGORY_LABELS[transaction.category],
   },
   {
     accessorKey: "paymentMethod",
     header: "Método de Pagamento",
-    cell: ({ row: { original: transaction } }) => 
+    cell: ({ row: { original: transaction } }) =>
       TRANSACTION_PAYMENT_METHOD_LABELS[transaction.paymentMethod],
   },
   {
@@ -83,7 +85,7 @@ export const transactionsColumns: ColumnDef<Transaction>[] = [
             <TrashIcon />
           </Button>
         </div>
-      )
-    }
+      );
+    },
   },
 ];

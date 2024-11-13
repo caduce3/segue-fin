@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between border-b border-solid px-8 py-4">
       <div className="flex items-center gap-10">
-        <div className="flex ">
+        <div className="flex mr-10">
           <Radar size={35} className="mr-2 text-[#E2B815]" />
           <h1 className="text-2xl font-bold">Segue.ai</h1>
         </div>

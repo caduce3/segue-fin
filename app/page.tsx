@@ -1,6 +1,7 @@
 import { UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import Navbar from "./_components/navbar";
 
 const HomePage = async () => {
   const { userId } = await auth();
@@ -9,9 +10,7 @@ const HomePage = async () => {
   }
 
   return (
-    <div>
-      <UserButton showName />
-    </div>
+    <Navbar />
   );
 };
 

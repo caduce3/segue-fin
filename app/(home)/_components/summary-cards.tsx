@@ -77,7 +77,12 @@ const SummaryCards = async ({ month, userId }: SummaryCardProps) => {
           <p className="text-white opacity-70">Saldo</p>
         </CardHeader>
         <CardContent className="flex justify-between">
-          <p className="text-4xl font-bold">{balance}</p>
+          <p className="text-4xl font-bold">
+            {Intl.NumberFormat("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            }).format(balance)}
+          </p>
           <AddTransactionButton />
         </CardContent>
       </Card>
